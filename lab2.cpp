@@ -12,25 +12,26 @@ int gcd(long long int a, int b){
     return a;
 }
 
-long long int pow(int a, long long int n, long long int p){
-    long long int res = 1;
-    for(int i = 1; i <= n; i++){
-        res = (res * a) % p;
-    }
-    return res;
-}
-
-// long long int pow(int a, long long int x, long long int n){
+// long long int pow(int a, long long int n, long long int p){
 //     long long int res = 1;
-//     while(x > 0){
-//         if(x % 2 == 0){
-//             res = (res * a) % n;
-//         }
-//         x = x >> 1;
-//         a = (a*a) % n;
+//     for(int i = 1; i <= n; i++){
+//         res = (res * a) % p;
 //     }
 //     return res;
 // }
+
+long long int pow(int a, long long int x, long long int n){
+    long long int res = 1;
+    
+    while(x > 0){
+        if(x % 2 == 1){
+            res = (res * a) % n;
+        }
+        x = x >> 1;
+        a = (a*a) % n;
+    }
+    return res;
+}
 
 bool isPrime(long long int n){
     if(n <= 1 || n == 4){
